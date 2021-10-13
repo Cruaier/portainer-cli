@@ -496,7 +496,7 @@ class PortainerCLI(object):
             prepped.headers['Content-Length'] = len(prepped.body)
         if self.jwt:
             prepped.headers['Authorization'] = 'Bearer {}'.format(self.jwt)
-        response = session.send(prepped, proxies=self.proxies, verify=False)
+        response = session.send(prepped, proxies=self.proxies)
         logger.debug('request response: {}'.format(response.content))
         response.raise_for_status()
         if printc:
